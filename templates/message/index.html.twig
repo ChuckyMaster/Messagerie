@@ -14,8 +14,10 @@
                         <div class="card-header">{{ message.title }}</div>
                         <div class="card-body">
 
-                            <p class="card-text">{{ message.content }}</p>
+                            <p class="card-text">{{ message.content }} </p>
+                            <img src="{{ vich_uploader_asset(message, 'imageFile') }}" style="width:200px" alt="" >
                             <small> Written by: {{ message.user.username }}</small>
+                            <small> Write {{ message.createdAt|date('d-m-y') }} at {{ message.createdAt|date('H:i')  }} </small>
 
                     </div>
                         <div class="btn">
@@ -38,6 +40,10 @@
                         {{ form_label(formular.content, 'Content') }}
                         {{ form_widget(formular.content) }}
                         {{ form_errors(formular.content) }}
+
+                        {{ form_label(formular.imageFile, 'Image') }}
+                        {{ form_widget(formular.imageFile) }}
+                        {{ form_errors(formular.imageFile) }}
 
 
                         <button type="submit" class="m-3 btn btn-info"> Send</button>

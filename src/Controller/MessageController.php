@@ -96,6 +96,8 @@ class MessageController extends AbstractController
 
 
             $message = $formular->getData();
+
+            $message->setCreatedAt(new \DateTime());
             $message->setUser($this->getUser());
 
 

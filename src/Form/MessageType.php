@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class MessageType extends AbstractType
 {
@@ -15,6 +16,7 @@ class MessageType extends AbstractType
         $builder
             ->add('content', TextareaType::class)
             ->add('title')
+            ->add('imageFile', VichImageType::class)
 
         ;
     }
