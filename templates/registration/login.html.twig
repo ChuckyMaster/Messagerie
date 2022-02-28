@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+    <form action="{{ path('signin') }}" method="post">
+
+        <input type="text" name="_username">
+        <input type="text" name="_password">
+
+        <button type="submit">send</button>
+
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+
+
+<div class="row">
+
+    <div class="col-12 justify-content-center">
+
+
+        <div>
+            {{ form_start(formular, {"action": path("newmessage")}) }}
+
+            {{ form_label(formular.title, 'Title') }}
+            {{ form_widget(formular.title) }}
+            {{ form_errors(formular.title) }}
+
+            {{ form_label(formular.content, 'Content') }}
+            {{ form_widget(formular.content) }}
+            {{ form_errors(formular.content) }}
+
+
+            <button type="submit" class="m-3 btn btn-info"> Send</button>
+            {{ form_end(formular) }}</div>
+
+
+    </div>
+
+    </div>
+</div>
+
+
+
+
+</div>
+
+
+{% endblock %}

@@ -5,15 +5,56 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        <link rel="stylesheet" href="https://bootswatch.com/5/journal/bootstrap.min.css">
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Hey !</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/home">Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signin">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Registers</a>
+                    </li>
+
+            </div>
+        </div>
+    </nav>
+
+        <div class="container">
+
+        <div class="row justify-content-center align-item-center p-5">
+
+            <div class="col-12"> <h1 class="text-center"> Hello !</h1></div>
+
+
+        </div></div>
+    <div class="container">
+
+        <div class="row justify-content-center align-item-center p-5">
+
+           <h1 class="text-center">   {% block body %}{% endblock %}</div>
+
+
+        </div>
+
+
+
+
     </body>
 </html>

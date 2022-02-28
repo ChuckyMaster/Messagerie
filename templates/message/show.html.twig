@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+
+
+
+
+
+
+    <div class="card border-primary m-3 ">
+        <div class="card-header">{{ message.title }}</div>
+        <div class="card-body">
+
+            <p class="card-text">{{ message.content }}</p>
+            <small> Written by: {{ message.user.username }}</small>
+
+        </div>
+        <div class="btn">
+            <a  class="btn btn-primary" href="{{ path('deletemessage', {id:message.id}) }}"> Delete</a>
+            <a href="{{ path('editmessage', {id:message.id} ) }}" class="btn btn-danger">Edit</a>
+        </div>
+    </div>
+
+
+<div class="container">
+
+
+<div class="row">
+
+
+    <div class="col-6">
+        <h3> Replies:</h3>
+        {% for reply in message.replies %}
+            <p> {{ reply.message.user.username }} reply:</p>
+        <p> {{ reply.content }}</p>
+
+
+            <hr>
+            <br>
+        {% endfor %}
+
+    </div>
+
+
+    <div class="col-6"> <h3> Reply to this</h3>
+
+    {{ form_start(formular, { action:path('replytomessage', {id:message.id}) } ) }}
+
+            {{ form_label(formular.content, "write here") }}
+        {{ form_widget(formular.content) }}
+
+        <button class="btn btn-primary" type="submit">reply</button>
+
+
+        {{ form_end(formular) }}
+
+
+
+    </div>
+</div></div>
+
+
+{% endblock %}

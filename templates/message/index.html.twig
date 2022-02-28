@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessageController!{% endblock %}
+
+{% block body %}
+
+
+            <div class="row">
+
+            <div class="col-6">   {% for message in messages %}
+
+
+                    <div class="card border-primary m-3" style="max-width: 40rem;">
+                        <div class="card-header">{{ message.title }}</div>
+                        <div class="card-body">
+
+                            <p class="card-text">{{ message.content }}</p>
+                            <small> Written by: {{ message.user.username }}</small>
+
+                    </div>
+                        <div class="btn">
+                            <a  class="btn btn-primary" href="{{ path('deletemessage', {id:message.id}) }}"> Delete</a>
+                            <a href="{{ path('editmessage', {id:message.id} ) }}" class="btn btn-danger">Edit</a>
+                            <a href="{{ path('showmessage', {id:message.id}) }}" class="btn btn-warning"> See</a>
+                        </div>
+                    </div>
+
+                {% endfor %}</div>
+                <div class="col-6"> <h3> Write here</h3>
+
+                    <div>
+                        {{ form_start(formular, {"action": path("newmessage")}) }}
+
+                        {{ form_label(formular.title, 'Title') }}
+                        {{ form_widget(formular.title) }}
+                        {{ form_errors(formular.title) }}
+
+                        {{ form_label(formular.content, 'Content') }}
+                        {{ form_widget(formular.content) }}
+                        {{ form_errors(formular.content) }}
+
+
+                        <button type="submit" class="m-3 btn btn-info"> Send</button>
+                        {{ form_end(formular) }}</div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+{% endblock %}
